@@ -1,29 +1,20 @@
+
 import React,{useState} from "react";
 
-export default function About() {
-    const [btnText,setbtnText] = useState("enable dark mode");
-const [myStyle,setmyStyle] = useState( {
-    color:"black",
-    backgroundColor:"white"
+export default function About(props) {
+   
+// const [myStyle,setmyStyle] = useState( {
+//     color:"black",
+//     backgroundColor:"white"
     
-})
-const togglebtn = () =>{
-    if(myStyle.color === "black"){
-        setmyStyle({
-            color:"white",
-            backgroundColor:"black"
-            
-        })
-        setbtnText("enable light mode")
-    }else{
-        setmyStyle({
-            color:"black",
-            backgroundColor:"white"
-        })
-        setbtnText("enable dark mode")
-
-    }
+// })
+const myStyle = {
+  color:props.mode=== "dark"? "white":"#021426",
+  backgroundColor:props.mode ==="dark"?"#021426":"white",
+ 
+ 
 }
+
      
   return (
       <div className="container my-3" style={myStyle}>
@@ -41,7 +32,7 @@ const togglebtn = () =>{
               aria-controls="collapseOne"
               style={myStyle}
             >
-              Accordion Item #1
+             <strong>Analyze your text</strong> 
             </button>
           </h2>
           <div
@@ -73,7 +64,7 @@ const togglebtn = () =>{
               aria-controls="collapseTwo"
               style={myStyle}
             >
-              Accordion Item #2
+             <strong> Free to use </strong>
             </button>
           </h2>
           <div
@@ -106,7 +97,7 @@ const togglebtn = () =>{
               style={myStyle}
               
             >
-              Accordion Item #3
+            <strong>Browser compatible</strong>
             </button>
           </h2>
           <div
@@ -129,9 +120,7 @@ const togglebtn = () =>{
         </div>
       </div>
     </div>
-    <div className="container my-3">
-    <button className="btn btn-primary" onClick={togglebtn}>{btnText}</button>
-    </div>
+   
     </div>
   );
 }
